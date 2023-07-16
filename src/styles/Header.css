@@ -1,0 +1,23 @@
+header{
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    color: white;
+    padding: 10px 15px;
+  
+  }
+
+  .buttonsBox{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .buttonsBox button{
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    padding: 10px;
+  }

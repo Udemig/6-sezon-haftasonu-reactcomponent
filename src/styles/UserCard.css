@@ -1,0 +1,26 @@
+.card{
+    display: flex;
+    background-color: black;
+    color: white;
+    align-items: center;
+    gap: 20px;
+    width: 400px;
+    padding: 20px 25px;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+.imageBox{
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: white;
+}
+
+
+.imageBox img{
+    width: 100%;
+    height: 100%;
+    object-fit: strecth;
+}

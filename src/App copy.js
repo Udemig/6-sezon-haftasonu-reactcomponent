@@ -1,9 +1,9 @@
 import "./index.css";
-import Header from "./components/Header.jsx";
-import SpecialButton from "./components/SpecialButton.js";
-import { Cards } from "./components/Cards.js";
-import { useState } from "react";
+import Header from "./compnents/Header.js";
+import SpecialButton from "./compnents/SpecialButton.js";
 import { users } from "./utils/constants.js";
+import UserCard from "./compnents/UserCard.js";
+import Cards from './compnents/Cards.js'
 /*
 Componenet Oluşturma Kuralları
 
@@ -93,24 +93,18 @@ React Props
    -string
    -number
    -object
-   -state
 
 
 */
 
 function App() {
-  //  console.log(users[0].first_name)
+  // console.log(users)
 
-  const [aktifKullaniciSAyisi, setAktifKullaniciSayisi] = useState(100);
-  const [dogruKullanici, setDogruKullanici] = useState(users[0].first_name);
+  const aktifKullaniciSayisi = 20;
 
-  //console.log(dogruKullanici);
   return (
     <div className="App">
-      <Header
-        set={() => setAktifKullaniciSayisi(aktifKullaniciSAyisi - 1)}
-        aktifKullaniciSayisi={aktifKullaniciSAyisi}
-      />
+      <Header aktifKullaniciSayisi={15} />
 
       <SpecialButton
         butonIsmi={"Onayla"}
@@ -118,13 +112,24 @@ function App() {
         className={"Speacialbutton"}
       />
 
-      <SpecialButton butonFonksiyonu={()=>setDogruKullanici('Yanlis')} butonIsmi={"Kırmızı Buton"} className={"Kirmizi"} />
+      <SpecialButton butonIsmi={"Kırmızı Buton"} className={"Kirmizi"} />
 
-      {dogruKullanici == "Chelsie" ? (
-        <Cards />
-      ) : (
-        <button onClick={() => setDogruKullanici("Chelsie")}>Giriş Yap</button>
-      )}
+      <div className="cards">
+        {users.map((user) =>
+          //console.log(user)
+
+          //Eğer map fonskiyonu kullanırken ()=> {} bu şekilde süslü parantez kullanıyorsak
+          //mutlaka içeriği return() etmeliyiz ---> ()=>{return(jsx kodları)}
+
+          //Bir diğer yol ()=>() bu şekilde normal kullanım returne gerek olmadan jsx yazılır
+
+          //Bir diğer yazım ise ()=>jsx kodu  şeklinde
+
+          {
+            return <UserCard userBilgi={user} />;
+          }
+        )}
+      </div>
     </div>
   );
 }
